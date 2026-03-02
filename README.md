@@ -4,6 +4,30 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Estilos
 
+### Path Aliases
+
+El proyecto tiene configurados los siguientes alias en `vite.config.ts`:
+
+```typescript
+alias: {
+  "@": "/src",
+  "@styles": "/src/styles",
+}
+```
+
+**Uso:**
+```scss
+// En archivos SCSS
+@use "@styles/mixins/responsive" as responsive;
+@use "@styles/variables/colors" as *;
+```
+
+```typescript
+// En archivos TypeScript/TSX
+import '@styles/index.scss';
+import { MyComponent } from '@/components/MyComponent';
+```
+
 ### Estructura
 
 ```
@@ -90,7 +114,7 @@ Las variables se generan automáticamente y están disponibles en `:root`:
 ### Mixins de Responsive
 
 ```scss
-@use '../styles/mixins/responsive' as responsive;
+@use '@styles/mixins/responsive' as responsive;
 
 .container {
   padding: var(--Spacing-padding-sm);
