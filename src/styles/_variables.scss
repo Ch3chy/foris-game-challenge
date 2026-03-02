@@ -1,0 +1,16 @@
+@use "./mixins/maps";
+@use "./variables/breakpoints";
+@use "./variables/fonts";
+@use "./variables/spacing";
+
+:root {
+  @include maps.generate-css-vars(breakpoints.$breakpoints, "Grid");
+}
+
+:root {
+  @include maps.generate-css-vars(spacing.$spacing, "Spacing");
+}
+
+:root {
+  @include maps.generate-css-vars(fonts.$fonts, "Font");
+}

@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "../variables/breakpoints";
+
+@mixin apply($breakpoint, $direction: min, $query: media) {
+  @if map.has-key(breakpoints.$breakpoints, $breakpoint) {
+    $breakpoint-values: map.get(breakpoints.$breakpoints, $breakpoint);
+    $breakpoint-min: map.get($breakpoint-values, min);
+    $breakpoint-max: map.get($breakpoint-values, max);
+
+    @if $query == container {
+      @if $direction == min {
+        @container (min-width: #{$breakpoint-min}) {
+          @content;
+        }
+      } @else {
+        @container (max-width: #{$breakpoint-max}) {
+          @content;
+        }
+      }
+    } @else {
+      @if $direction == min {
+        @media (min-width: $breakpoint-min) {
+          @content;
+        }
+      } @else {
+        @media (max-width: $breakpoint-max) {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @if $query == container {
+      @if $direction == min {
+        @container (min-width: #{$breakpoint}) {
+          @content;
+        }
+      } @else {
+        @container (max-width: #{$breakpoint}) {
+          @content;
+        }
+      }
+    } @else {
+      @if $direction == min {
+        @media (min-width: $breakpoint) {
+          @content;
+        }
+      } @else {
+        @media (max-width: $breakpoint) {
+          @content;
+        }
+      }
+    }
+  }
+}

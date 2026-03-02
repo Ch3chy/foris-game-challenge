@@ -1,0 +1,6 @@
+@use "./mixins/maps";
+@use "./variables/colors";
+
+:root {
+  @include maps.generate-css-vars(colors.$colors, "Color");
+}

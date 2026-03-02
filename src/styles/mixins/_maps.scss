@@ -1,0 +1,17 @@
+@use "sass:meta";
+
+@function is-map($var) {
+  @return meta.type-of($var) == "map";
+}
+
+@mixin generate-css-vars($map, $prefix) {
+  @each $key, $value in $map {
+    @if is-map($value) {
+      @each $variant, $variantValue in $value {
+        --#{$prefix}-#{$key}-#{$variant}: #{$variantValue};
+      }
+    } @else {
+      --#{$prefix}-#{$key}: #{$value};
+    }
+  }
+}
