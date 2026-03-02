@@ -129,6 +129,49 @@ Las variables se generan automáticamente y están disponibles en `:root`:
 }
 ```
 
+## Commits
+
+El proyecto usa [commitlint](https://commitlint.js.org/) con [husky](https://typicode.github.io/husky/) para validar el formato de los commits.
+
+### Formato
+
+```
+type(scope): descripción
+```
+
+### Types permitidos
+
+| Type       | Descripción                          |
+|------------|--------------------------------------|
+| `feat`     | Nueva funcionalidad                  |
+| `fix`      | Corrección de bug                    |
+| `docs`     | Documentación                        |
+| `style`    | Cambios de formato (no afectan lógica) |
+| `refactor` | Refactorización de código            |
+| `perf`     | Mejoras de rendimiento               |
+| `test`     | Agregar o modificar tests            |
+| `build`    | Cambios en build o dependencias      |
+| `ci`       | Cambios en CI/CD                     |
+| `chore`    | Tareas de mantenimiento              |
+| `revert`   | Revertir commits                     |
+
+### Scopes permitidos
+
+| Scope   | Descripción                    |
+|---------|--------------------------------|
+| `root`  | Cambios generales del proyecto |
+| `login` | Módulo de login                |
+| `game`  | Módulo del juego               |
+
+### Ejemplos
+
+```bash
+feat(login): add login form validation
+fix(game): fix score calculation bug
+docs(root): update readme with commit guidelines
+chore(root): update dependencies
+```
+
 ---
 
 Currently, two official plugins are available:
