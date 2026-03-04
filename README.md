@@ -52,15 +52,28 @@ src/styles/
 Las variables se generan automáticamente y están disponibles en `:root`:
 
 ```css
-/* Colores */
---Color-primary-base: #5a9e9e;
---Color-primary-hover: #4a8585;
---Color-accent-base: #87ceeb;
+/* Colores - Primary */
+--Color-primary-base: #A2F2F9;
+--Color-primary-hover: #49D5E1;
+--Color-primary-dark: #1A7A83;
+
+/* Colores - Secondary */
+--Color-secondary-base: #D8E054;
+--Color-secondary-hover: #B1B83B;
+--Color-secondary-dark: #73781C;
+
+/* Colores - Background */
 --Color-background-base: #1e1e3f;
---Color-background-surface: #fdf6d3;
---Color-text-primary: #2d2d2d;
+--Color-background-surface: #fffac2;
+
+/* Colores - Text */
+--Color-text-primary: #313D49;
 --Color-text-secondary: #5a5a5a;
 --Color-text-light: #ffffff;
+
+/* Colores - Otros */
+--Color-light: #ffffff;
+--Color-warning: #e53935;
 
 /* Fuentes */
 --Font-family: "Montserrat", sans-serif;
