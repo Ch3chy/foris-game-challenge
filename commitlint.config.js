@@ -24,7 +24,7 @@ export default {
       'always',
       [
         'root',     // Cambios generales del proyecto
-        'login',    // Módulo de login
+        'auth',    // Módulo de autenticación
         'game',     // Módulo del juego
       ],
     ],

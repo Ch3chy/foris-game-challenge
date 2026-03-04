@@ -1,0 +1,25 @@
+.container {
+  background-color: var(--Color-background-surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacing-xl);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 330px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  a {
+    color: var(--Color-text-secondary);
+    font-size: var(--Font-size-2xl);
+    font-weight: var(--Font-weight-semibold);
+    text-decoration: none;
+  }
+}
