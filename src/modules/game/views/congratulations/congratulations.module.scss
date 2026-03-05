@@ -1,0 +1,17 @@
+.congratulations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacing-2xl);
+  margin: auto;
+  max-width: 560px;
+}
+
+.subtitle {
+  font-size: var(--Font-size-2xl);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--Spacing-2xl);
+}
