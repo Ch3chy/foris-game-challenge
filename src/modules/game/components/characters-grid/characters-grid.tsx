@@ -1,18 +1,24 @@
 import type { FC } from "react";
 import styles from "./characters-grid.module.scss";
 import { Card } from "../card";
-import type { Character } from "@/domain/character";
+import type { CardState } from "../../stores";
 
 interface CharactersGridProps {
-  characters: Character[];
+  cards: CardState[];
+  onCardClick: (index: number) => void;
 }
 
-const CharactersGrid: FC<CharactersGridProps> = ({ characters }) => {
+const CharactersGrid: FC<CharactersGridProps> = ({ cards, onCardClick }) => {
   return (
     <section className={styles.charactersGrid}>
       <div className={styles.grid}>
-        {characters.map((character) => (
-          <Card key={`card-${character.id}`} character={character} />
+        {cards.map((card, index) => (
+          <Card
+            key={`card-${index}`}
+            character={card.character}
+            flip={card.isFlipped || card.isMatched}
+            onClick={() => onCardClick(index)}
+          />
         ))}
       </div>
     </section>

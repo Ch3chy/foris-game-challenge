@@ -6,15 +6,13 @@ import type { Character } from "@/domain/character";
 interface CardProps {
   character: Character;
   flip?: boolean;
-  selected?: boolean;
   onClick?: () => void;
 }
 
-const Card: FC<CardProps> = ({ character, flip, selected, onClick }) => {
+const Card: FC<CardProps> = ({ character, flip, onClick }) => {
   const cardClasses = [
     styles.card,
-    flip && styles.flip,
-    selected && styles.selected,
+    !flip && styles.flip,
   ]
     .filter(Boolean)
     .join(" ");

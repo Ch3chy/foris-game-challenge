@@ -28,28 +28,3 @@
     padding: var(--Spacing-xs) var(--Spacing-md);
   }
 }
-
-.gameBoard {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: var(--Spacing-lg);
-
-    .titleContainer {
-        display: flex;
-        justify-content: space-between;
-        .title {
-            font-size: var(--Font-size-2xl);
-            font-weight: var(--Font-weight-bold);
-        }
-    }
-}
-
-.footer {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    button {
-        width: auto;
-    }
-}

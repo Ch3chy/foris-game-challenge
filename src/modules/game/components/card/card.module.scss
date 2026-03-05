@@ -4,10 +4,6 @@
   perspective: 1000px;
   width: 100%;
 
-  &.selected .front {
-    border-color: var(--Color-primary-hover);
-  }
-
   &.flip .inner {
     transform: rotateY(180deg);
   }
@@ -35,10 +31,6 @@
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-.front {
-  border: 3px solid transparent;
 }
 
 .back {
