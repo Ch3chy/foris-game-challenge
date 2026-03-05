@@ -6,10 +6,16 @@ import { Button } from "@/components/button";
 import { VALIDATION_SCHEMA } from "../../utils/login-validation";
 
 interface LoginFormProps {
-  onSubmit?: (username: string, password: string) => void;
+  onSubmit: (username: string, password: string) => void;
+  isLoading?: boolean;
+  error?: string | null;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
+const LoginForm: FC<LoginFormProps> = ({
+  onSubmit,
+  isLoading = false,
+  error,
+}) => {
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -17,14 +23,14 @@ const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
     },
     validationSchema: VALIDATION_SCHEMA,
     onSubmit: (values) => {
-      if (onSubmit) {
-        onSubmit(values.username, values.password);
-      }
+      onSubmit(values.username, values.password);
     },
   });
 
   return (
     <form className={styles.form} onSubmit={formik.handleSubmit}>
+      {error && <div className={styles.error}>{error}</div>}
+
       <TextField
         name="username"
         label="Usuario"
@@ -48,9 +54,9 @@ const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
         color="accent"
         type="submit"
         className={styles.button}
-        disabled={formik.isSubmitting}
+        disabled={isLoading}
       >
-        Iniciar sesión
+        {isLoading ? "Iniciando..." : "Iniciar sesión"}
       </Button>
     </form>
   );
