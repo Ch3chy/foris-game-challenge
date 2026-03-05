@@ -162,6 +162,71 @@ alias: {
 }
 ```
 
+## Testing
+
+### Stack
+
+- **Vitest** - Test runner compatible con Vite
+- **React Testing Library** - Testing de componentes React
+- **@testing-library/user-event** - Simulación de interacciones de usuario
+
+### Comandos
+
+```bash
+npm test              # Watch mode
+npm run test:run      # Single run
+npm run test:coverage # Con reporte de cobertura
+```
+
+### Estructura
+
+Los tests se ubican junto a los archivos que testean con extensión `.test.ts` o `.test.tsx`:
+
+```
+src/
+├── components/
+│   ├── button/
+│   │   ├── button.tsx
+│   │   └── button.test.tsx
+│   └── text-field/
+│       ├── text-field.tsx
+│       └── text-field.test.tsx
+├── modules/
+│   ├── auth/
+│   │   ├── services/authService.test.ts
+│   │   ├── stores/useAuthStore.test.ts
+│   │   ├── utils/login-validation.test.ts
+│   │   ├── components/login-form/login-form.test.tsx
+│   │   └── views/login/login.test.tsx
+│   └── game/
+│       ├── services/characterService.test.ts
+│       ├── stores/useGameStore.test.ts
+│       ├── components/card/card.test.tsx
+│       ├── components/characters-grid/characters-grid.test.tsx
+│       └── views/game-board/game-board.test.tsx
+├── router/components/
+│   ├── ProtectedRoute.test.tsx
+│   └── PublicRoute.test.tsx
+└── utils/
+    └── array.utils.test.ts
+```
+
+### Cobertura
+
+| Módulo | Tests | Descripción |
+|--------|-------|-------------|
+| **Components** | 34 | Button, TextField |
+| **Auth** | 55 | Service, Store, LoginForm, Validation, Login view |
+| **Game** | 47 | Service, Store, Card, Grid, GameBoard, Congratulations |
+| **Router** | 6 | ProtectedRoute, PublicRoute |
+| **Utils** | 16 | shuffleArray, getRandomElements |
+
+### Hooks
+
+El proyecto usa **Husky** para ejecutar tests automáticamente:
+
+- **pre-push**: Ejecuta `npm run test:run` antes de cada push
+
 ## Commits
 
 Formato: `type(scope): descripción`
@@ -191,3 +256,38 @@ feat(login): add login form validation
 fix(game): fix score calculation bug
 chore(root): update dependencies
 ```
+
+## Desarrollo Asistido por IA
+
+Este proyecto fue desarrollado con el apoyo de **GitHub Copilot** (Claude Opus 4.5) como herramienta de asistencia en el desarrollo.
+
+### ¿Cómo se utilizó la IA?
+
+| Área | Uso |
+|------|-----|
+| **Arquitectura** | Definición de estructura modular, patrones de diseño |
+| **Configuración** | Setup de Vite, TypeScript, SASS, Commitlint, Husky |
+| **Componentes** | Scaffolding de componentes reutilizables (Button, TextField) |
+| **Estado global** | Implementación de stores con Zustand |
+| **Testing** | Generación de casos de prueba con Vitest |
+| **Documentación** | Redacción y estructura del README |
+
+### Rol del desarrollador
+
+La IA fue utilizada como **herramienta de productividad**, no como reemplazo del criterio técnico. El desarrollador:
+
+- Definió los requerimientos y decisiones de arquitectura
+- Revisó y validó todo el código generado
+- Realizó ajustes según las necesidades específicas del proyecto
+- Tomó decisiones sobre qué implementar y cómo estructurarlo
+- Garantizó la calidad y coherencia del código final
+
+### Reflexión
+
+El uso de IA en el desarrollo permite:
+- Acelerar tareas repetitivas (boilerplate, tests)
+- Explorar diferentes enfoques de implementación
+- Mantener consistencia en patrones y estilos
+- Enfocarse en la lógica de negocio y UX
+
+> La IA es una herramienta poderosa, pero el conocimiento técnico sigue siendo esencial para guiarla, evaluarla y tomar decisiones informadas.
