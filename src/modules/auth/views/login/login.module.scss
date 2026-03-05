@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .container {
   background-color: var(--Color-background-surface);
   display: flex;
@@ -9,17 +11,30 @@
   display: flex;
   justify-content: center;
   img {
-    max-width: 330px;
+    max-width: 220px;
+  }
+
+  @include responsive.apply(md) {
+    img {
+      max-width: 330px;
+    }
   }
 }
 
 .footer {
   display: flex;
   justify-content: center;
+  text-align: center;
   a {
     color: var(--Color-text-secondary);
-    font-size: var(--Font-size-2xl);
+    font-size: var(--Font-size-lg);
     font-weight: var(--Font-weight-semibold);
     text-decoration: none;
+  }
+
+  @include responsive.apply(md) {
+    a {
+      font-size: var(--Font-size-2xl);
+    }
   }
 }

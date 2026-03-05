@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,9 +8,13 @@
 }
 
 .label {
-  font-size: var(--Font-size-xl);
+  font-size: var(--Font-size-md);
   font-weight: var(--Font-weight-bold);
   color: var(--Color-text-primary);
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-xl);
+  }
 }
 
 .inputWrapper {
@@ -42,7 +48,7 @@
   background: transparent;
   color: var(--Color-text-primary);
   font-family: var(--Font-family);
-  font-size: var(--Font-size-xl);
+  font-size: var(--Font-size-lg);
   outline: none;
   padding: var(--Spacing-sm) 0;
   width: 100%;
@@ -53,6 +59,10 @@
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-xl);
   }
 }
 

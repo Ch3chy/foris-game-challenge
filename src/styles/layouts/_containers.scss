@@ -1,6 +1,12 @@
+@use "../mixins/responsive";
+
 .principalContainer {
-    background-color: var(--Color-background-surface);
-    border-radius: var(--Spacing-radius-lg);
+  background-color: var(--Color-background-surface);
+  border-radius: var(--Spacing-radius-lg);
+  padding: var(--Spacing-lg);
+  width: 100%;
+
+  @include responsive.apply(md) {
     padding: var(--Spacing-xl) var(--Spacing-3xl);
-    width: 100%;
+  }
 }

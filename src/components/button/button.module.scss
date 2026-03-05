@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .button {
   align-items: center;
   border: none;
@@ -7,10 +9,10 @@
   display: inline-flex;
   gap: var(--Spacing-sm);
   font-family: var(--Font-family);
-  font-size: var(--Font-size-xl);
+  font-size: var(--Font-size-lg);
   font-weight: var(--Font-weight-semibold);
   justify-content: center;
-  padding: var(--Spacing-sm) var(--Spacing-3xl);
+  padding: var(--Spacing-sm) var(--Spacing-2xl);
   white-space: nowrap;
   width: 100%;
 
@@ -21,6 +23,11 @@
 
   &:focus-visible {
     outline: none;
+  }
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-xl);
+    padding: var(--Spacing-sm) var(--Spacing-3xl);
   }
 }
 
