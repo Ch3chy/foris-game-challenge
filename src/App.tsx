@@ -1,10 +1,10 @@
 import "./App.scss";
-import Auth from "./modules/auth";
+import Game from "./modules/game";
 
 function App() {
   return (
     <>
-      <Auth />
+      <Game />
     </>
   );
 }
