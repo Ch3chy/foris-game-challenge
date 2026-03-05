@@ -1,9 +1,10 @@
 import type { FC } from "react";
 import styles from "./congratulations.module.scss";
-import { useGameStore } from "@/stores";
+import { useAuthStore, useGameStore } from "@/stores";
 import { Button } from "@/components/button";
 
 const Congratulations: FC = () => {
+  const { logout } = useAuthStore();
   const { turns, resetGame } = useGameStore();
 
   return (
@@ -16,7 +17,9 @@ const Congratulations: FC = () => {
       </div>
       <footer className={styles.footer}>
         <Button onClick={resetGame}>Repetir</Button>
-        <Button color="secondary">Inicio</Button>
+        <Button color="secondary" onClick={logout}>
+          Inicio
+        </Button>
       </footer>
     </section>
   );
