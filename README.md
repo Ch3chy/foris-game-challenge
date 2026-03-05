@@ -2,6 +2,8 @@
 
 Juego de memoria basado en el universo de Rick and Morty. El usuario debe encontrar pares de cartas con personajes de la serie.
 
+🎮 **[Ver Demo](https://ch3chy.github.io/foris-game-challenge/)**
+
 ## Stack Tecnológico
 
 - **React 19** + **TypeScript** + **Vite**
@@ -226,6 +228,22 @@ src/
 El proyecto usa **Husky** para ejecutar tests automáticamente:
 
 - **pre-push**: Ejecuta `npm run test:run` antes de cada push
+
+## Deploy
+
+El proyecto está desplegado en **GitHub Pages**.
+
+### Desplegar
+
+```bash
+npm run deploy
+```
+
+Este comando ejecuta `build` y publica la carpeta `dist` en la rama `gh-pages`.
+
+### URL
+
+🔗 https://ch3chy.github.io/foris-game-challenge/
 
 ## Commits
 

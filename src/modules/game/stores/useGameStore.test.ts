@@ -173,9 +173,19 @@ describe("useGameStore", () => {
     });
 
     it("does not flip more than 2 cards", () => {
-      useGameStore.getState().flipCard(0);
-      useGameStore.getState().flipCard(1);
-      useGameStore.getState().flipCard(2);
+      const cards = useGameStore.getState().cards;
+      // Find two cards that don't match to avoid auto-reset of flippedIndices
+      const firstIndex = 0;
+      const secondIndex = cards.findIndex(
+        (card, idx) => idx !== firstIndex && card.character.id !== cards[firstIndex].character.id
+      );
+      const thirdIndex = cards.findIndex(
+        (_, idx) => idx !== firstIndex && idx !== secondIndex
+      );
+
+      useGameStore.getState().flipCard(firstIndex);
+      useGameStore.getState().flipCard(secondIndex);
+      useGameStore.getState().flipCard(thirdIndex);
 
       expect(useGameStore.getState().flippedIndices).toHaveLength(2);
     });
