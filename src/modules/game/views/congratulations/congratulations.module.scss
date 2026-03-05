@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .congratulations {
   display: flex;
   flex-direction: column;
@@ -6,12 +8,27 @@
   max-width: 560px;
 }
 
-.subtitle {
+.title {
   font-size: var(--Font-size-2xl);
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-3xl);
+  }
+}
+
+.subtitle {
+  font-size: var(--Font-size-lg);
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-2xl);
+  }
 }
 
 .footer {
   display: flex;
   justify-content: center;
-  gap: var(--Spacing-2xl);
+  gap: var(--Spacing-lg);
+
+  @include responsive.apply(md) {
+    gap: var(--Spacing-2xl);
+  }
 }
