@@ -1,13 +1,25 @@
+@use "@styles/mixins/responsive";
+
 .charactersGrid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--Spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacing-md);
 }
 
 .grid {
-    display: grid;
-    gap: var(--Spacing-padding-md);
+  display: grid;
+  gap: var(--Spacing-md);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, auto);
+
+  @include responsive.apply(sm) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  @include responsive.apply(md) {
     gap: var(--Spacing-lg);
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, auto);
+  }
 }

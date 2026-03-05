@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .card {
   background: transparent;
   cursor: pointer;
@@ -52,9 +54,17 @@
 }
 
 .name {
-  font-size: var(--Font-size-base);
+  font-size: var(--Font-size-xs);
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-base);
+  }
 }
 
 .status {
-  font-size: var(--Font-size-xs);
+  font-size: var(--Font-size-2xs);
+
+  @include responsive.apply(md) {
+    font-size: var(--Font-size-xs);
+  }
 }

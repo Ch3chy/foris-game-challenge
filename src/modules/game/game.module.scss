@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .gameContainer {
   display: flex;
   flex-direction: column;
@@ -17,14 +19,23 @@
   justify-content: center;
   width: 100%;
   img {
-    max-width: 520px;
+    max-width: 300px;
   }
   .title {
     background-color: var(--Color-secondary-base);
     border-radius: var(--Spacing-radius-full);
     color: var(--Color-text-primary);
-    font-size: var(--Font-size-xl);
+    font-size: var(--Font-size-md);
     font-weight: var(--Font-weight-bold);
     padding: var(--Spacing-xs) var(--Spacing-md);
+  }
+
+  @include responsive.apply(md) {
+    img {
+      max-width: 520px;
+    }
+    .title {
+      font-size: var(--Font-size-xl);
+    }
   }
 }
